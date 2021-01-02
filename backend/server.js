@@ -17,13 +17,13 @@ app.get('/api/values', (req, res) => {
     });
 });
 
-db.pool.query(`CREATE TABLE lists (
-    id INTEGER AUTO_INCREMENT,
-    value TEXT,
-    PRIMARY KEY (id)
-)`, (err, results, fileds) => {
-    console.log('resulsts', results);
-})
+// db.pool.query(`CREATE TABLE lists (
+//     id INTEGER AUTO_INCREMENT,
+//     value TEXT,
+//     PRIMARY KEY (id)
+// )`, (err, results, fileds) => {
+//     console.log('resulsts', results);
+// })
 
 
 app.post('/api/value', (req, res, next) => {
