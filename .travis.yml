@@ -20,4 +20,4 @@ after_success:
 
   - docker push ijboym216/docker-frontend
   - docker push ijboym216/docker-backend
-  - docker push ijboym216/nginx
+  - docker push ijboym216/docker-nginx
