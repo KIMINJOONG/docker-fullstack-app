@@ -22,7 +22,7 @@ function App() {
   const submitHandler = (event) => {
     event.preventDefault();
     
-    axios.post('/api/value', value).then((response) => {
+    axios.post('/api/value', {value}).then((response) => {
       if(response.data.success) {
         console.log('response', response);
         setLists([...lists, response.data]);

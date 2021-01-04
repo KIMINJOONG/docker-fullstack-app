@@ -7,6 +7,8 @@ const db = require('./db');
 
 const app = express();
 
+app.use(express.json());
+
 app.get('/api/values', (req, res) => {
     db.pool.query('SELECT * FROM lists;', (err, results, fileds) => {
         if(err) {
@@ -27,7 +29,7 @@ app.get('/api/values', (req, res) => {
 
 
 app.post('/api/value', (req, res, next) => {
-    db.pool.query(`INSERT INTO lists (value) VALUES("${req.body.value})`, (err, results, fileds) => {
+    db.pool.query(`INSERT INTO lists (value) VALUES("${req.body.value}")`, (err, results, fileds) => {
         if(err) {
             return res.status(500).send(err);
         } else {
@@ -36,7 +38,6 @@ app.post('/api/value', (req, res, next) => {
     })
 });
 
-app.use(express.json());
 
 app.listen(5000, () => {
     console.log('에플리케이션이 5000번 포트에서 시작되었습니다.');
