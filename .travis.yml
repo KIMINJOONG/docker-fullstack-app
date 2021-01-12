@@ -21,3 +21,16 @@ after_success:
   - docker push ijboym216/docker-frontend
   - docker push ijboym216/docker-backend
   - docker push ijboym216/docker-nginx
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-1"
+  app: "docker-fullstack-app"
+  env: "DockerFullstackApp-env"
+  bucket_name: elasticbeanstalk-ap-northeast-1-382115335846
+  bucket_path: "dockeru-fullstack-app"
+  on:
+    branch: master
+
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
